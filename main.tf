@@ -87,6 +87,31 @@ resource "aws_route_table_association" "public_subnet_asso" {
 
 }
 
+resource "aws_s3_bucket" "bucket1" {
+
+    bucket = var.bucket_name
+    tags = {
+      Name = "iac-s3-v1"
+    }
+
+}
+
+resource "aws_s3_bucket_acl" "bucket1" {
+
+    bucket = var.bucket_name
+    acl = "private"
+
+}
+
+resource "aws_s3_bucket_versioning" "bucket_versioning" {
+
+    bucket = var.bucket_name
+    versioning_configuration {
+      status = "Enabled"
+    }
+
+}
+
 
 resource "aws_security_group" "web-sg" {
 
