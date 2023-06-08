@@ -96,12 +96,12 @@ resource "aws_s3_bucket" "bucket1" {
 
 }
 
-resource "aws_s3_bucket_acl" "bucket1" {
+#resource "aws_s3_bucket_acl" "bucket1" {
 
-    bucket = var.bucket_name
-    acl = "private"
+#    bucket = var.bucket_name
+#    acl = "private"
 
-}
+#}
 
 resource "aws_s3_bucket_versioning" "bucket_versioning" {
 
