@@ -30,7 +30,7 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                sh 'terraform plan '
+                sh 'terraform plan -migrate-state'
             }
         }
         stage ("terraform apply") {
