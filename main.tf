@@ -88,10 +88,10 @@ resource "aws_route_table_association" "public_subnet_asso" {
 
 }
 
-/*
+
 resource "aws_s3_bucket" "terrafrom-state" {
 
-    bucket = var.bucket_name  
+    bucket = "iac-s3-v0"  
     lifecycle {
         prevent_destroy = true
     }
@@ -109,22 +109,12 @@ resource "aws_s3_bucket" "terrafrom-state" {
     }
 }
 
-resource "aws_s3_bucket_acl" "bucket1" {
-
-    bucket = var.bucket_name
-    acl = "private"
-
+resource "aws_s3_bucket_object" "terrafrom-state" {
+  
+    bucket = "iac-s3-v0"
+    key    = "terraform.tfstate"
+    source = "./terraform.tfstate"
 }
-
-resource "aws_s3_bucket_versioning" "bucket_versioning" {
-
-    bucket = var.bucket_name
-    versioning_configuration {
-      status = "Enabled"
-    }
-
-}
-*/
 
 resource "aws_security_group" "web-sg" {
 

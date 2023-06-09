@@ -24,9 +24,11 @@ variable "azs" {
     #default     = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
 }
 
+/*
 variable "bucket_name" {
 
     description = "CI/CD Infra test"
     default = "iac-s3-v0"
 
 }
+*/
