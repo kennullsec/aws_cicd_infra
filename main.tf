@@ -114,6 +114,7 @@ resource "aws_s3_bucket_object" "terrafrom-state" {
     bucket = "iac-s3-v0"
     key    = "terraform.tfstate"
     source = "./terraform.tfstate"
+    depends_on = [aws_s3_bucket.terrafrom-state]
 }
 
 resource "aws_security_group" "web-sg" {
