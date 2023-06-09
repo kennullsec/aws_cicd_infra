@@ -15,7 +15,7 @@ pipeline {
         }
         stage ("terraform init") {
             steps {
-                sh 'terraform init -force-copy '
+                sh 'terraform init -migrate-state'
             }
         }
         stage ("terraform fmt") {
@@ -30,7 +30,7 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                sh 'terraform plan -migrate-state'
+                sh 'terraform plan '
             }
         }
         stage ("terraform apply") {
