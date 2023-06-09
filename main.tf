@@ -88,6 +88,7 @@ resource "aws_route_table_association" "public_subnet_asso" {
 
 }
 
+/*
 resource "aws_s3_bucket" "terrafrom-state" {
 
     bucket = var.bucket_name  
@@ -108,12 +109,12 @@ resource "aws_s3_bucket" "terrafrom-state" {
     }
 }
 
-#resource "aws_s3_bucket_acl" "bucket1" {
+resource "aws_s3_bucket_acl" "bucket1" {
 
-#    bucket = var.bucket_name
-#    acl = "private"
+    bucket = var.bucket_name
+    acl = "private"
 
-#}
+}
 
 resource "aws_s3_bucket_versioning" "bucket_versioning" {
 
@@ -123,6 +124,7 @@ resource "aws_s3_bucket_versioning" "bucket_versioning" {
     }
 
 }
+*/
 
 resource "aws_security_group" "web-sg" {
 
