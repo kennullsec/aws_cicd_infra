@@ -11,6 +11,7 @@ resource "aws_instance" "web" {
     ami = "ami-05fa00d4c63e32376"
     instance_type =  "t2.micro"
     vpc_security_group_ids = [aws_security_group.web-sg.id]
+    user_data = "${file("app_install.sh")}"
 
     tags = {
         Name = random_pet.name.id
@@ -87,13 +88,24 @@ resource "aws_route_table_association" "public_subnet_asso" {
 
 }
 
-resource "aws_s3_bucket" "bucket1" {
+resource "aws_s3_bucket" "terrafrom-state" {
 
-    bucket = var.bucket_name
-    tags = {
-      Name = "iac-s3-v1"
+    bucket = "terrafrom-state"  
+    lifecycle {
+        prevent_destroy = true
     }
 
+    versioning {
+        enabled = true
+    }
+
+    server_side_encryption_configuration {
+        rule {
+            apply_server_side_encryption_by_default {
+                sse_algorithm = "AES256"
+            }
+        }
+    }
 }
 
 #resource "aws_s3_bucket_acl" "bucket1" {
