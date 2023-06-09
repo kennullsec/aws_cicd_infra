@@ -90,7 +90,7 @@ resource "aws_route_table_association" "public_subnet_asso" {
 
 resource "aws_s3_bucket" "terrafrom-state" {
 
-    bucket = "terrafrom-state"  
+    bucket = var.bucket_name  
     lifecycle {
         prevent_destroy = true
     }
