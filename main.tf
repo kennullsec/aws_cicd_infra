@@ -124,6 +124,12 @@ resource "aws_s3_bucket_versioning" "bucket_versioning" {
 
 }
 
+backend "s3" {
+    bucket = var.bucket_name
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+}
+
 
 resource "aws_security_group" "web-sg" {
 
