@@ -88,7 +88,7 @@ resource "aws_route_table_association" "public_subnet_asso" {
 
 }
 
-
+/*
 resource "aws_s3_bucket" "terrafrom-state" {
 
     bucket = "iac-s3-v0"  
@@ -110,12 +110,12 @@ resource "aws_s3_bucket" "terrafrom-state" {
 }
 
 resource "aws_s3_bucket_object" "terrafrom-state" {
-  
+
     bucket = "iac-s3-v0"
     key    = "terraform.tfstate"
     source = "./terraform.tfstate"
 }
-
+*/
 resource "aws_security_group" "web-sg" {
 
   name        = "${random_pet.name.id}-sg"
