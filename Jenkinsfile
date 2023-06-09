@@ -15,7 +15,7 @@ pipeline {
         }
         stage ("terraform init") {
             steps {
-                sh 'terraform init -force-copy -reconfigure '
+                sh 'terraform init -force-copy '
             }
         }
         stage ("terraform fmt") {
