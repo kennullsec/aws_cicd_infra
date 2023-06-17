@@ -112,7 +112,7 @@ resource "aws_s3_bucket" "terrafrom-state" {
 resource "aws_s3_bucket_object" "terrafrom-state" {
 
     bucket = "iac-s3-v0"
-    key    = "terraform.tfstate"
+    key    = "terraform1.tfstate"
     source = "./terraform.tfstate"
     depends_on = [aws_s3_bucket.terrafrom-state]
 }
